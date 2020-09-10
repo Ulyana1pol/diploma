@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parallel Programming Algoritms</title>
+	<!-- META TAGS -->
+	 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Polyakova Ulyana">
+<meta name="description" content="Теория и тесты по алгоритмам параллельного программирования"> 
+<!-- STYLES -->
+	<link rel="stylesheet" href="content/css/bootstrap.min.css">
+	<link rel="stylesheet" href="content/css/ionicons.min.css">
+	<link rel="stylesheet" href="content/css/animsition.min.css">
+	<link rel="stylesheet" href="content/css/flexslider.css">
+	<link rel="stylesheet" href="content/css/animate.css">
+	<link rel="stylesheet" href="content/css/style.css">
+</head>
+<body class="animsition">
+	<!-- Шапка -->
+	<header class="main-header">
+		<div class="container">
+			<div class="menu">
+				<!-- Навигация -->
+				<nav class="desktop-nav">
+					<ul class="first-level">
+						<li><a href="index.html" class="animsition-link">Главная</a></li>
+						<li><a  href="algorithms.html" class="animsition-link">Теория алгоритмов</a>
+                           <ul class="second-level">
+								<li><a href="algorithms.html" class="animsition-link">Алгоритмы</a></li>
+								<li><a href="algorithms-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="algorithms-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="algorithms-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="algorithms-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="algorithms-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                         </li>
+						<li><a href="test.html" class="animsition-link">Тесты</a>
+                            <ul class="second-level">
+								<li><a href="test.html" class="animsition-link">Тест общий</a></li>
+								<li><a href="test-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="test-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="test-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="test-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="test-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                        </li>
+                   <li><a href="desktop.html" class="animsition-link">Desktop приложение</a>  </li>
+					</ul>
+				</nav>
+			<!-- mobile navbar -->
+			 <nav class="mobile-nav"></nav>
+			   <div class="menu-icon">
+			     <div class="line"></div>
+			     <div class="line"></div>
+			     <div class="line"></div>
+			   </div>
+			</div>
+		</div>
+	</header>
+
+	<!-- HERO SECTION  -->
+	<div class="site-hero_2">
+		<div class="page-title">
+			<div class="big-title montserrat-text uppercase">Алгоритмы параллельного программирования</div>
+		</div>
+	</div>
+
+<section>
+<div class="container">
+			<div class="col-md-5 col-sm-12">
+				<div class="row">
+					<img src="content/img/alg.jpg" alt="image">
+				</div>
+			</div>
+			<div class="col-md-offset-1 col-md-6 col-sm-12">
+				<div class="row">
+					<div class="section-title">
+					<span>Что такое алгоритм?</span>
+					<p align="left">
+					 <b>Алгоритм</b> – это последовательность инструкций, которые позволяют упростить и ускорить решение задачи.</p>
+					<p align="left">При разработке алгоритма нужно учитывать архитектуру компьютера, на котором будет выполняться алгоритм</p>
+					<p align="left"> Согласно архитектуре, существует <b>два типа компьютеров:</b></p>
+				    <p align="left">-<b>Последовательный компьютер</b></p>
+						<p align="left">-<b>Параллельный компьютер</b></p>		
+				</div>
+				</div>
+			</div>
+	        <p align="left">
+					 В зависимости от архитектуры компьютеров, у нас есть <b>два типа алгоритмов:</b> </p>
+					<p align="left"><b>Последовательный алгоритм</b> – алгоритм, в котором некоторые последовательные шаги инструкций выполняются в хронологическом порядке для решения задачи.</p>
+					<p align="left"> <b>Параллельный алгоритм</b> – алгоритм, в котором задача делится на подзадачи, и они выполняется одновременно, то есть параллельно для получения отдельных выходных данных, затем эти отдельные выходы объединяются, чтобы получить конечный желаемый результат.</p>
+	<p align="left">Важно! Нелегко разделить большую задачу на подзадачи. Подзадачи могут иметь зависимость данных между ними. Поэтому процессоры должны общаться друг с другом, чтобы решить проблему.</p>
+	<p align="left">Следует знать, что время, необходимое процессорам для связи друг с другом, больше, чем фактическое время обработки. Таким образом, при разработке параллельного алгоритма необходимо учитывать правильную загрузку ЦП, чтобы получить эффективный алгоритм. </p>
+	
+
+		</div>
+	</section>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="section-title">
+					<span>Эффективность параллельного алгоритма</span>
+				</div>
+			</div>
+ 					        <p align="left">Параллельные алгоритмы предназначены для повышения скорости вычислений на компьютере. Для анализа эффективности параллельного алгоритма рассматриваются следующие параметры: </p>
+							<p align="left"><li><b>Время выполнения. </b></li></p>
+								<p>Измеряется на основе времени, затраченного алгоритмом на решение задачи. Общее время выполнения рассчитывается с момента начала выполнения алгоритма до момента его остановки. Если все процессоры не запускают или не завершают выполнение одновременно, то общее время выполнения алгоритма – это момент, когда первый процессор начал выполнение, до того момента, когда последний процессор прекратил выполнение. </p>
+							<p align="left"> <li><b>Общее количество используемых процессоров.</b></li> </p>
+				</div>
+	</section>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="section-title">
+					<span>Виды параллельных алгоритмов</span>
+				</div>
+			</div>
+			<p align="center">Мы будем рассмотривать два вида алгоритмов параллельного вычисления</p>
+			<div class="col-sm-6 col-xs-12 col-md-offset-1 col-md-5">
+			      <p align="left"><li><b>Алгоритмы синхронизации</b></li></p>			
+			<p align="left">Сюда относятся такие алгоритмы, как:</p>
+				  <p align="left"> <li>Алгоритм <b>"Рандеву"</b></li> </p>
+			      <p align="left"> <li>Алгоритм <b>"Семафор"</b></li> </p>
+				</div>
+		<div class="col-md-6 col-sm-6 col-xs-12">
+			      <p align="left"><li><b>Алгоритмы обработки</b></li></p>
+			      <p align="left">Сюда относятся такие алгоритмы, как:</p>
+				  <p align="left"> <li>Алгоритм обработки больших массивов данных <b>"MapReduce"</b></li> </p>
+			      <p align="left"> <li>Алгоритм обработки больших объемов данных <b>"Портфель задач"</b></li> </p>
+		          <p align="left"> <li>Алгоритм обработки запросов <b>"FCFS"</b></li> </p>
+			</div>
+				</div>
+	</section>
+		
+<section style="background:#e3e8ee">
+		<div class="container">
+			<div class="row">
+			</div>
+			<div class="row">
+				<div class="section-title">
+					<span>Подробнее ознакомиться с алгоритмами</span>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp">
+					<div class="menu_bar1">
+                  <div class="plan_title montserrat-text uppercase">портфель задач</div>
+						<p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p>
+						
+						<a href="algorithms-portfel-zadach.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".1s">
+					<div class="menu_bar2">
+						<div class="plan_title montserrat-text uppercase">MAP-REDUCE</div>
+						<div><p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p></div>
+						
+						<a href="algorithms-map-reduse.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".2s">
+					<div class="menu_bar3">
+						<div class="plan_title montserrat-text uppercase">Семафор</div>
+						<p><b>Описание алгоритма</b></p>
+						<p> <b>Пример реализации</b></p>
+						<a href="algorithms-semafor.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="container" >
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp col-md-offset-2" data-wow-delay=".1s">
+					<div class="menu_bar4">
+						<div class="plan_title montserrat-text uppercase">Рандеву</div>
+						<div><p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p></div>
+						
+						<a href="algorithms-randevy.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".2s">
+					<div class="menu_bar5">
+						<div class="plan_title montserrat-text uppercase">FCFS</div>
+						<p><b>Описание алгоритма</b></p>
+						<p> <b>Пример реализации</b></p>
+						<a href="algorithms-fcfs.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	
+
+
+
+	<!-- Подвал -->
+	<footer class="main-footer wow fadeInUp">
+		<div class="container">
+			<div class="col-md-8 col-sm-12">
+				<div class="row">
+					<div class="uppercase gray-text">
+						Ивановский Государственный Энергетический Университет
+						
+						<d>Кафедра Высокопроизводительных Вычислительных Систем </d>
+						<d>Алгоритмы Параллельного Программирования</d>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-12" style="text-align:right">
+				<div class="row">
+					<div class="uppercase gray-text">
+						created by Полякова Ульяна &copy;2020
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="content/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="content/js/jquery.social-buttons.min.js"></script>
+	<script type="text/javascript" src="content/js/smoothScroll.js"></script>
+	<script type="text/javascript" src="content/js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="content/js/jquery.animsition.min.js"></script>
+	<script type="text/javascript" src="content/js/wow.min.js"></script>
+	<script type="text/javascript" src="content/js/main.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(window).load(function() {
+			new WOW().init();
+			// initialize flexslider
+			$('.project_images').flexslider({
+				directionNav : false,
+				controlNav : false
+			});
+
+			// initialize social buttons
+			$("[data-social]").socialButtons();
+		});
+	</script>
+</body>
+</html>

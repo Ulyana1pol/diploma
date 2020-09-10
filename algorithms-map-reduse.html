@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parallel Programming Algoritms</title>
+	<!-- META TAGS -->
+	 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Polyakova Ulyana">
+<meta name="description" content="Теория и тесты по алгоритмам параллельного программирования"> 
+<!-- STYLES -->
+	<link rel="stylesheet" href="content/css/bootstrap.min.css">
+	<link rel="stylesheet" href="content/css/ionicons.min.css">
+	<link rel="stylesheet" href="content/css/animsition.min.css">
+	<link rel="stylesheet" href="content/css/flexslider.css">
+	<link rel="stylesheet" href="content/css/animate.css">
+	<link rel="stylesheet" href="content/css/style.css">
+</head>
+<body class="animsition">
+	<!-- Шапка -->
+	<header class="main-header">
+		<div class="container">
+			<div class="menu">
+				<!-- Навигация -->
+				<nav class="desktop-nav">
+					<ul class="first-level">
+						<li><a href="index.html" class="animsition-link">Главная</a></li>
+						<li><a  href="algorithms.html" class="animsition-link">Теория алгоритмов</a>
+                           <ul class="second-level">
+								<li><a href="algorithms.html" class="animsition-link">Алгоритмы</a></li>
+								<li><a href="algorithms-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="algorithms-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="algorithms-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="algorithms-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="algorithms-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                         </li>
+						<li><a href="test.html" class="animsition-link">Тесты</a>
+                            <ul class="second-level">
+								<li><a href="test.html" class="animsition-link">Тест общий</a></li>
+								<li><a href="test-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="test-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="test-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="test-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="test-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                        </li>
+<li><a href="desktop.html" class="animsition-link">Desktop приложение</a>  </li>
+
+					</ul>
+				</nav>
+			<!-- mobile navbar -->
+			 <nav class="mobile-nav"></nav>
+			   <div class="menu-icon">
+			     <div class="line"></div>
+			     <div class="line"></div>
+			     <div class="line"></div>
+			   </div>
+			</div>
+		</div>
+	</header>
+
+	<!-- HERO SECTION  -->
+	<div class="site-hero_2">
+		<div class="page-title">
+			<div class="big-title montserrat-text uppercase">Map-Reduce</div>
+		</div>
+	</div>
+
+<div class="container">
+			<div class="col-md-5 col-sm-12">
+				<div class="row">
+					<img src="content/img/mr.jpeg" alt="image">
+				</div>
+			</div>
+			<div class="col-md-offset-1 col-md-6 col-sm-12">
+				<div class="row">
+					<div class="section-title">
+					<span>Суть алгоритма</span>
+					<p align="left">
+					 Алгоритм состоит из двух шагов: </p>
+					<p align="left"> </p>
+				    <p align="left"><b>- шаг Map </b></p>
+					<p align="left"><b>- шаг Reduse</b> </p>
+					<p align="left">Алгоритм предназначен для обработки больших массивов данных.  </p>
+					<p align="left"><b>На шаге Map</b> процесс мастер master node большой набор данных, большую задачу разделяет на подзадачи, которые распределяет между процессами (worker node – рабочими процессами).
+Рабочие процессы выполняют предварительную обработку полученных данных и промежуточные результаты отсылают на master node.</p>	
+						<p align="left"><b>На шаге Reduce</b> главный процесс master node собирает предварительно обработанные данные, обрабатывает их и получает результат.</p>	
+				</div>
+				</div>
+			</div>
+		</div>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="section-title">
+					<span>Пример использования алгоритма Map-Reduce.</span>
+				</div>
+				<p align="left"><b>Формулировка задачи</b> </p>
+			  <p align="left">  Написать Map-Reduce программу, которая обрабатывает большие массивы данных.
+Файл с числами уже есть. </p>
+				<p align="left">Master node – нулевой процесс, будет частями по buf_size рассылать на все рабочие процессы на шаге Map. </p>
+			    <p align="left">Рабочие процессы будут находить сумму и количество принятых ими чисел, число которых меньше buf_size будет обрабатывать master node. </p>
+			   <p align="left">Каждый рабочий процесс будет формировать в размере buf[buf_size] на класс map buf[0]. </p>
+				<p align="left">На шаге Reduce master node получает предварительно обработанные данные и вычисляет среднее арифметическое всех чисел в файле.</p> 
+			<img src="content/img/formyl/mr/mr.jpg" alt="image">
+		     <pre class="cpp" style="font-family:monospace;"><span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span><span style="color: #000040;">**</span>argv<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+	<span style="color: #666666;">//шапка</span>
+	<span style="color: #0000ff;">int</span> msgtag<span style="color: #000080;">=</span><span style="color: #0000dd;">12</span>, st<span style="color: #000080;">=</span><span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">double</span> buf<span style="color: #008000;">&#91;</span>buf_size<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">double</span> sum, count<span style="color: #008080;">;</span> <span style="color: #666666;">//po 30</span>
+	sum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	count <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	tn<span style="color: #000080;">=</span>MPI_Wtime<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>rank<span style="color: #008000;">&#41;</span> <span style="color: #666666;">//master node</span>
+	<span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">FILE</span> <span style="color: #000040;">*</span>fin, <span style="color: #000040;">*</span>fout<span style="color: #008080;">;</span>
+		fopen_s<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>fin, <span style="color: #FF0000;">&quot;number.txt&quot;</span>, <span style="color: #FF0000;">&quot;r&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		fopen_s<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>fout, <span style="color: #FF0000;">&quot;result.txt&quot;</span>, <span style="color: #FF0000;">&quot;w&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		n <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> link <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		<span style="color: #666666;">//for (i=0;i&lt;1000;i++) </span>
+		<span style="color: #666666;">//fprintf_s(fin,&quot;%d &quot;, rand()%100);</span>
+		<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">fscanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%f&quot;</span>, buf <span style="color: #000040;">+</span> n<span style="color: #008000;">&#41;</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000ff;">EOF</span><span style="color: #008000;">&#41;</span>
+		<span style="color: #008000;">&#123;</span>
+			h<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>n <span style="color: #000080;">==</span> buf_size<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			MPI_Send<span style="color: #008000;">&#40;</span>buf, buf_size, MPI_DOUBLE, link, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+				link<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+				n <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+				<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>link <span style="color: #000080;">==</span> size<span style="color: #008000;">&#41;</span>
+					link <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #666666;">// обрвботка &quot;хвостика&quot;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			count<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			sum <span style="color: #000040;">+</span><span style="color: #000080;">=</span> buf<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		buf<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> st<span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> size<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+			MPI_Send<span style="color: #008000;">&#40;</span>buf, buf_size, MPI_DOUBLE, i, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #666666;">//Reduce</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> size<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			MPI_Recv<span style="color: #008000;">&#40;</span>buf, <span style="color: #0000dd;">2</span>, MPI_DOUBLE, i, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			sum <span style="color: #000040;">+</span><span style="color: #000080;">=</span> buf<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+			count <span style="color: #000040;">+</span><span style="color: #000080;">=</span> buf<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span> <span style="color: #666666;">//принял предварительно обработанные данные</span>
+			<span style="color: #0000ff;">double</span> rez <span style="color: #000080;">=</span> sum <span style="color: #000040;">/</span> count<span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>fount, <span style="color: #FF0000;">&quot;Среднее арифметическое чисел =%f<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, rez<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000dd;">fclose</span><span style="color: #008000;">&#40;</span>fin<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000dd;">fclose</span><span style="color: #008000;">&#40;</span>fount<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span> <span style="color: #666666;">//worker node</span>
+		whule<span style="color: #008000;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	MPI_Recv<span style="color: #008000;">&#40;</span>buf, buf_size, MPI_DOUBLE, <span style="color: #0000dd;">0</span>, msgtag, MPI_COMM_WORLD, <span style="color: #000040;">&amp;</span>status<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>buf<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> st<span style="color: #008000;">&#41;</span>
+				<span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>
+			<span style="color: #666666;">//решить задачу</span>
+			<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> buf_size<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				sum <span style="color: #000080;">=</span> buf<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+				count<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+		MPI_Recv<span style="color: #008000;">&#40;</span>buf, <span style="color: #0000dd;">2</span>, MPI_DOUBLE, <span style="color: #0000dd;">0</span>, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	MPI_Finalize<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span> <span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;The End<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span> <span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+Нахождение максимального числа, с помощью метода Map<span style="color: #000040;">-</span>Reduc.
+<span style="color: #339900;">#define comm MPI_COMM_WORLD</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span><span style="color: #000040;">**</span>argv<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> size, rank<span style="color: #008080;">;</span>
+	<span style="color: #666666;">//шапка</span>
+	<span style="color: #0000ff;">int</span> msgtag<span style="color: #000080;">=</span><span style="color: #0000dd;">12</span>, st<span style="color: #000080;">=</span><span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> buf_size<span style="color: #000080;">=</span><span style="color: #0000dd;">30</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> buf<span style="color: #008000;">&#91;</span>buf_size<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span> <span style="color: #666666;">//po 30</span>
+	<span style="color: #0000ff;">int</span> count<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> i,n,link<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> tek<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>, max<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> <span style="color: #666666;">//for max count</span>
+	<span style="color: #0000ff;">double</span> tn,tk,dt<span style="color: #008080;">;</span>
+	tn<span style="color: #000080;">=</span>MPI_Wtime<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>rank<span style="color: #008000;">&#41;</span> 
+	<span style="color: #008000;">&#123;</span> <span style="color: #666666;">//master node</span>
+		<span style="color: #0000ff;">FILE</span> <span style="color: #000040;">*</span>fin, <span style="color: #000040;">*</span>fout<span style="color: #008080;">;</span>
+		fopen_s<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>fin,<span style="color: #FF0000;">&quot;number.txt&quot;</span>,<span style="color: #FF0000;">&quot;r&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		fopen_s<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>fout,<span style="color: #FF0000;">&quot;result.txt&quot;</span>,<span style="color: #FF0000;">&quot;w&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		n<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> link<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		<span style="color: #666666;">//for (i=0;i&lt;1000;i++)  //создаем файл с числами</span>
+		<span style="color: #666666;">//fprintf_s(fin,&quot;%d &quot;, rand()%100);</span>
+		<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">fscanf</span><span style="color: #008000;">&#40;</span>fin,<span style="color: #FF0000;">&quot;%d&quot;</span>,<span style="color: #000040;">&amp;</span>tek<span style="color: #008000;">&#41;</span><span style="color: #000040;">!</span><span style="color: #000080;">=</span><span style="color: #0000ff;">EOF</span><span style="color: #008000;">&#41;</span> 
+		<span style="color: #008000;">&#123;</span>
+			<span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span>max<span style="color: #000080;">&lt;</span>tek<span style="color: #008000;">&#41;</span> 
+			max<span style="color: #000080;">=</span>tek<span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		tk<span style="color: #000080;">=</span>MPI_Wtime<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		dt<span style="color: #000080;">=</span>tk<span style="color: #000040;">-</span>tn<span style="color: #008080;">;</span>
+		<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>fout,<span style="color: #FF0000;">&quot;Max number: %d<span style="color: #000099; font-weight: bold;">\n</span> Time: %f<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>,max,dt<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000dd;">fclose</span><span style="color: #008000;">&#40;</span>fin<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000dd;">fclose</span><span style="color: #008000;">&#40;</span>fout<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	MPI_Barrier<span style="color: #008000;">&#40;</span>MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	tn<span style="color: #000080;">=</span>MPI_Wtime<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>rank<span style="color: #008000;">&#41;</span> <span style="color: #666666;">//master node</span>
+	<span style="color: #008000;">&#123;</span> 
+		<span style="color: #0000ff;">FILE</span> <span style="color: #000040;">*</span>fin, <span style="color: #000040;">*</span>fout<span style="color: #008080;">;</span>
+		fopen_s<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>fin,<span style="color: #FF0000;">&quot;number.txt&quot;</span>,<span style="color: #FF0000;">&quot;r&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		fopen_s<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>fout,<span style="color: #FF0000;">&quot;result.txt&quot;</span>,<span style="color: #FF0000;">&quot;a&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		n<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> link<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>fscanf_s<span style="color: #008000;">&#40;</span>fin,<span style="color: #FF0000;">&quot;%d&quot;</span>,buf<span style="color: #000040;">+</span>n<span style="color: #008000;">&#41;</span><span style="color: #000040;">!</span><span style="color: #000080;">=</span><span style="color: #0000ff;">EOF</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			n<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>n <span style="color: #000080;">==</span> buf_size<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#123;</span>
+				MPI_Send<span style="color: #008000;">&#40;</span>buf,buf_size,MPI_DOUBLE,link,msgtag,MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+				link<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+				n <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+				<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>link <span style="color: #000080;">==</span> size<span style="color: #008000;">&#41;</span> link <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>i<span style="color: #000080;">&lt;</span>n<span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#123;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>max <span style="color: #000080;">&lt;</span> buf<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span>
+			max <span style="color: #000080;">=</span> buf<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		buf<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> st<span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>i<span style="color: #000080;">&lt;</span>size<span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+			MPI_Send<span style="color: #008000;">&#40;</span>buf,buf_size,MPI_DOUBLE,i,msgtag,MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #666666;">// REDUCE</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>i<span style="color: #000080;">&lt;</span>size<span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#123;</span>
+			MPI_Recv<span style="color: #008000;">&#40;</span>buf,<span style="color: #0000dd;">1</span>,MPI_DOUBLE,i,msgtag,MPI_COMM_WORLD,<span style="color: #000040;">&amp;</span>status<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>max <span style="color: #000080;">&lt;</span> buf<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span>
+			max <span style="color: #000080;">=</span> buf<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">fclose</span><span style="color: #008000;">&#40;</span>fin<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		tk <span style="color: #000080;">=</span> MPI_Wtime<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		dt <span style="color: #000080;">=</span> tk <span style="color: #000040;">-</span> tn<span style="color: #008080;">;</span>
+		<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>fout,<span style="color: #FF0000;">&quot;Max number2 = %d<span style="color: #000099; font-weight: bold;">\n</span> Time2 = %f<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>,max,dt<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000dd;">fclose</span><span style="color: #008000;">&#40;</span>fout<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">while</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">true</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#123;</span>
+			MPI_Recv<span style="color: #008000;">&#40;</span>buf,buf_size,MPI_DOUBLE,<span style="color: #0000dd;">0</span>,msgtag,MPI_COMM_WORLD,<span style="color: #000040;">&amp;</span>status<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>buf<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span><span style="color: #000080;">==</span>st<span style="color: #008000;">&#41;</span> <span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>i<span style="color: #000080;">&lt;</span>buf_size<span style="color: #008080;">;</span>i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#123;</span>
+				<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>max <span style="color: #000080;">&lt;</span> buf<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span>
+				max <span style="color: #000080;">=</span> buf<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+			buf<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> max<span style="color: #008080;">;</span>
+			MPI_Send<span style="color: #008000;">&#40;</span>buf,<span style="color: #0000dd;">1</span>,MPI_DOUBLE,<span style="color: #0000dd;">0</span>,msgtag,MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+     MPI_Finalize<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span> <span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;The End<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span> <span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;</pre>
+	</div>	
+  </div>
+</section>
+	<section style="background:#e3e8ee">
+		<div class="container">
+			<div class="row">
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp col-md-offset-2">
+					<div class="menu_bar1">
+                  <div class="plan_title montserrat-text uppercase">портфель задач</div>
+						<p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p>
+						
+						<a href="algorithms-portfel-zadach.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".2s">
+					<div class="menu_bar3">
+						<div class="plan_title montserrat-text uppercase">Семафор</div>
+						<p><b>Описание алгоритма</b></p>
+						<p> <b>Пример реализации</b></p>
+						<a href="algorithms-semafor.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="container" >
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp col-md-offset-2" data-wow-delay=".1s">
+					<div class="menu_bar4">
+						<div class="plan_title montserrat-text uppercase">Рандеву</div>
+						<div><p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p></div>
+						
+						<a href="algorithms-randevy.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".2s">
+					<div class="menu_bar5">
+						<div class="plan_title montserrat-text uppercase">FCFS</div>
+						<p><b>Описание алгоритма</b></p>
+						<p> <b>Пример реализации</b></p>
+						<a href="algorithms-fcfs.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	
+
+
+
+	<!-- Подвал -->
+	<footer class="main-footer wow fadeInUp">
+		<div class="container">
+			<div class="col-md-8 col-sm-12">
+				<div class="row">
+					<div class="uppercase gray-text">
+						Ивановский Государственный Энергетический Университет
+						
+						<d>Кафедра Высокопроизводительных Вычислительных Систем </d>
+						<d>Алгоритмы Параллельного Программирования</d>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-12" style="text-align:right">
+				<div class="row">
+					<div class="uppercase gray-text">
+						created by Полякова Ульяна &copy;2020
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="content/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="content/js/jquery.social-buttons.min.js"></script>
+	<script type="text/javascript" src="content/js/smoothScroll.js"></script>
+	<script type="text/javascript" src="content/js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="content/js/jquery.animsition.min.js"></script>
+	<script type="text/javascript" src="content/js/wow.min.js"></script>
+	<script type="text/javascript" src="content/js/main.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(window).load(function() {
+			new WOW().init();
+			// initialize flexslider
+			$('.project_images').flexslider({
+				directionNav : false,
+				controlNav : false
+			});
+
+			// initialize social buttons
+			$("[data-social]").socialButtons();
+		});
+	</script>
+</body>
+</html>

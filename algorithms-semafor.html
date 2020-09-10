@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parallel Programming Algoritms</title>
+	<!-- META TAGS -->
+	 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Polyakova Ulyana">
+<meta name="description" content="Теория и тесты по алгоритмам параллельного программирования"> 
+<!-- STYLES -->
+	<link rel="stylesheet" href="content/css/bootstrap.min.css">
+	<link rel="stylesheet" href="content/css/ionicons.min.css">
+	<link rel="stylesheet" href="content/css/animsition.min.css">
+	<link rel="stylesheet" href="content/css/flexslider.css">
+	<link rel="stylesheet" href="content/css/animate.css">
+	<link rel="stylesheet" href="content/css/style.css">
+</head>
+<body class="animsition">
+	<!-- Шапка -->
+	<header class="main-header">
+		<div class="container">
+			<div class="menu">
+				<!-- Навигация -->
+				<nav class="desktop-nav">
+					<ul class="first-level">
+						<li><a href="index.html" class="animsition-link">Главная</a></li>
+						<li><a  href="algorithms.html" class="animsition-link">Теория алгоритмов</a>
+                           <ul class="second-level">
+								<li><a href="algorithms.html" class="animsition-link">Алгоритмы</a></li>
+								<li><a href="algorithms-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="algorithms-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="algorithms-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="algorithms-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="algorithms-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                         </li>
+						<li><a href="test.html" class="animsition-link">Тесты</a>
+                            <ul class="second-level">
+								<li><a href="test.html" class="animsition-link">Тест общий</a></li>
+								<li><a href="test-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="test-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="test-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="test-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="test-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                        </li>
+<li><a href="desktop.html" class="animsition-link">Desktop приложение</a>  </li>
+
+					</ul>
+				</nav>
+			<!-- mobile navbar -->
+			 <nav class="mobile-nav"></nav>
+			   <div class="menu-icon">
+			     <div class="line"></div>
+			     <div class="line"></div>
+			     <div class="line"></div>
+			   </div>
+			</div>
+		</div>
+	</header>
+
+	<!-- HERO SECTION  -->
+	<div class="site-hero_2">
+		<div class="page-title">
+			<div class="big-title montserrat-text uppercase">Семафор</div>
+		</div>
+	</div>
+
+<div class="container">
+			<div class="col-md-5 col-sm-12">
+				<div class="row">
+					<img src="content/img/sem.png" alt="image">
+				</div>
+			</div>
+			<div class="col-md-offset-1 col-md-6 col-sm-12">
+				<div class="row">
+					<div class="section-title">
+					  <span>Суть алгоритма</span>
+					  <p align="left">
+					 Семафоры являются одними из первых средств синхронизации. Пользуются для планирования и сигнализации.  </p>
+					  <p align="left">Семафор – это особый вид, разделяемой переменной, которая обрабатывается двумя функциями сигнала <b>signal() </b> и <b>wait()</b> .</p>
+					  <p align="left"><b>signal() </b></p>
+					  <div class="col-md-offset-1 col-sm-12 col-md-11">
+							<p align="left">  //ф-ия сигнал изменяет значение семафора</p>
+							<p align="left"> <b> int sem = 0; </b> </p>     
+	                        <p align="left"> <b> void signal() {</b></p>
+							<div class="col-md-offset-1 col-sm-12 col-md-11">
+		                           <p align="left">  <b>sem = 1; </b></p>
+						    </div>
+	                        <p align="left"> <b>} </b></p>
+					  </div>
+						
+						<p align="left"><b>wait() </b></p>
+						<div class="col-md-offset-1 col-sm-12 col-md-11">
+					       <p align="left">  //ф-ия останавливает процесс-тред до тех пор,   </p> 
+		                   <p align="left"> <b> void wait() { </b> </p> 
+							<div class="col-md-offset-1 col-sm-12 col-md-11">
+								<p align="left"> //пока значение семафора не будет изменено.</p>
+	                            <p align="left"> <b> while (!sem) {</b></p>
+						        <div class="col-md-offset-1 col-sm-12 col-md-11">
+		                           <p align="left">  <b>sem = 1; </b></p>
+	                               <p align="left"> <b>int a = 12;</b></p>
+							    </div>
+			                    <p align="left"> <b>}	</b></p>
+							</div>
+			                <p align="left"> <b>}	</b></p>
+						</div>
+
+				  </div>
+				</div>
+			</div>
+		</div>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="section-title">
+					<span>Пример использования алгоритма "Семафор".</span>
+				</div>
+				<p align="left"><b>Формулировка задачи</b> </p>
+			  <p align="left"> Задача о курильщиках.</p>
+				<p align="left">Есть тред «стол» и три треда «курильщика», у одного из тредов есть бесконечное множество бумаги, у второго – табака, у третьего – спичек. Тред «стол» выкладывает 2 случайных компонента из трех: бумага, спички, табак. </p>
+				<p align="left"><b>Граф – машина</b> </p>
+			    <img src="content/img/formyl/sem/sem.jpg" alt="image">
+				<p align="left"><b>Код программы</b> </p>
+				
+				<pre class="cpp" style="font-family:monospace;"><span style="color: #339900;">#define Lmax 20</span>
+<span style="color: #339900;">#define N 2</span>
+<span style="color: #0000ff;">using</span> <span style="color: #0000ff;">namespace</span> std<span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> sem<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #0000ff;">void</span> <span style="color: #0000ff;">signal</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+	sem<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">void</span> wait<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">while</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>sem<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> a<span style="color: #000080;">=</span><span style="color: #0000dd;">12</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>     <span style="color: #0000dd;">1</span>
+<span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> p<span style="color: #008000;">&#91;</span>N<span style="color: #008000;">&#93;</span>, l, j<span style="color: #008080;">;</span>       <span style="color: #0000dd;">2</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>l <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> l <span style="color: #000080;">&lt;</span> lmax<span style="color: #008080;">;</span> l<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>    <span style="color: #0000dd;">3</span>
+&nbsp;
+		sem <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>                  <span style="color: #0000dd;">4</span>
+<span style="color: #339900;">#pragma omp parallel shared(sem, p)</span>
+ num_threads<span style="color: #008000;">&#40;</span><span style="color: #0000dd;">4</span><span style="color: #008000;">&#41;</span>         <span style="color: #0000dd;">5</span>
+		<span style="color: #008000;">&#123;</span>
+			<span style="color: #0000ff;">int</span> myid <span style="color: #000080;">=</span> omp_get_thread_num<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>   <span style="color: #0000dd;">6</span>
+			<span style="color: #0000ff;">do</span> <span style="color: #008000;">&#123;</span><span style="color: #666666;">//жизненный цикл</span>
+&nbsp;
+&nbsp;
+                      <span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>myid <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span>
+				<span style="color: #008000;">&#123;</span>
+					p<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">rand</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">%</span> <span style="color: #0000dd;">3</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+					p<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">rand</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">%</span> <span style="color: #0000dd;">3</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>             <span style="color: #0000dd;">7</span>
+					<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>p<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> p<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span>
+						p<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">rand</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">%</span> <span style="color: #0000dd;">3</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+					<span style="color: #666666;">// печать p[0], p[1], l</span>
+					sygnal<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>        <span style="color: #0000dd;">8</span>
+				<span style="color: #008000;">&#125;</span>
+				<span style="color: #0000ff;">else</span> wait<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008080;">;</span>          <span style="color: #0000dd;">9</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>         <span style="color: #0000dd;">5</span> <span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">10</span>
+&nbsp;
+		sem <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>         <span style="color: #0000dd;">11</span>
+<span style="color: #339900;">#pragma omp parallel shared(sem, p)    12</span>
+		shared<span style="color: #008000;">&#40;</span>sem, p<span style="color: #008000;">&#41;</span>  num_threads <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000ff;">int</span> myid <span style="color: #000080;">=</span> omp_get_thread_num<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #0000dd;">13</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>myid<span style="color: #008000;">&#41;</span> wait<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>                <span style="color: #0000dd;">14</span>
+			<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+				<span style="color: #0000ff;">int</span> komp <span style="color: #000080;">=</span> myid<span style="color: #008080;">;</span>     <span style="color: #0000dd;">15</span>      
+				<span style="color: #0000ff;">int</span> k <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+				<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> N<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+					<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>komp <span style="color: #000080;">==</span> p<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>      
+						pr <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>            <span style="color: #0000dd;">16</span> 
+						<span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>
+					<span style="color: #008000;">&#125;</span>
+&nbsp;
+					<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>pr<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+						<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>k <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> k <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">1000</span><span style="color: #008080;">;</span> k<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>      <span style="color: #0000dd;">17</span>
+							<span style="color: #0000ff;">int</span> m <span style="color: #000080;">=</span> komp <span style="color: #000040;">*</span> <span style="color: #0000dd;">3</span><span style="color: #008080;">;</span>
+						<span style="color: #0000ff;">signal</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #0000dd;">18</span>
+					<span style="color: #008000;">&#125;</span>   <span style="color: #0000dd;">19</span>
+				<span style="color: #008000;">&#125;</span>    <span style="color: #0000dd;">13</span> <span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">20</span>
+			<span style="color: #008000;">&#125;</span>  <span style="color: #0000dd;">3</span> <span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">21</span>
+		<span style="color: #008000;">&#125;</span>    
+&nbsp;
+		<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>  <span style="color: #0000dd;">1</span> <span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">22</span>
+&nbsp;</pre>
+		
+		     
+	</div>	
+  </div>
+</section>
+	<section style="background:#e3e8ee">
+		<div class="container">
+			<div class="row">
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp col-md-offset-2">
+					<div class="menu_bar1">
+                  <div class="plan_title montserrat-text uppercase">портфель задач</div>
+						<p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p>
+						
+						<a href="algorithms-portfel-zadach.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".1s">
+					<div class="menu_bar2">
+						<div class="plan_title montserrat-text uppercase">MAP-REDUCE</div>
+						<div><p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p></div>
+						
+						<a href="algorithms-map-reduse.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="container" >
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp col-md-offset-2" data-wow-delay=".1s">
+					<div class="menu_bar4">
+						<div class="plan_title montserrat-text uppercase">Рандеву</div>
+						<div><p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p></div>
+						
+						<a href="algorithms-randevy.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".2s">
+					<div class="menu_bar5">
+						<div class="plan_title montserrat-text uppercase">FCFS</div>
+						<p><b>Описание алгоритма</b></p>
+						<p> <b>Пример реализации</b></p>
+						<a href="algorithms-fcfs.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<!-- Подвал -->
+	<footer class="main-footer wow fadeInUp">
+		<div class="container">
+			<div class="col-md-8 col-sm-12">
+				<div class="row">
+					<div class="uppercase gray-text">
+						Ивановский Государственный Энергетический Университет
+						
+						<d>Кафедра Высокопроизводительных Вычислительных Систем </d>
+						<d>Алгоритмы Параллельного Программирования</d>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-12" style="text-align:right">
+				<div class="row">
+					<div class="uppercase gray-text">
+						created by Полякова Ульяна &copy;2020
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="content/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="content/js/jquery.social-buttons.min.js"></script>
+	<script type="text/javascript" src="content/js/smoothScroll.js"></script>
+	<script type="text/javascript" src="content/js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="content/js/jquery.animsition.min.js"></script>
+	<script type="text/javascript" src="content/js/wow.min.js"></script>
+	<script type="text/javascript" src="content/js/main.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(window).load(function() {
+			new WOW().init();
+			// initialize flexslider
+			$('.project_images').flexslider({
+				directionNav : false,
+				controlNav : false
+			});
+
+			// initialize social buttons
+			$("[data-social]").socialButtons();
+		});
+	</script>
+</body>
+</html>

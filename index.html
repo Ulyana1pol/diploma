@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parallel Programming Algoritms</title>
+	<!-- META TAGS -->
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Polyakova Ulyana">
+	<meta name="description" content="Теория и тесты по алгоритмам параллельного программирования">
+
+	<!-- STYLES -->
+	<link rel="stylesheet" href="content/css/bootstrap.min.css">
+	<link rel="stylesheet" href="content/css/ionicons.min.css">
+	<link rel="stylesheet" href="content/css/flexslider.css">
+	<link rel="stylesheet" href="content/css/animsition.min.css">
+	<link rel="stylesheet" href="content/css/animate.css">
+	<link rel="stylesheet" href="content/css/style.css">
+</head>
+<body class="animsition">
+	<!-- Шапка  -->
+	<header class="main-header">
+		<div class="container">
+			<div class="menu">
+				<!-- Навигация -->
+				<nav class="desktop-nav">
+					<ul class="first-level">
+						<li><a href="index.html" class="animsition-link">Главная</a></li>
+						<li><a  href="algorithms.html" class="animsition-link">Теория алгоритмов</a>
+                           <ul class="second-level">
+								<li><a href="algorithms.html" class="animsition-link">Алгоритмы</a></li>
+								<li><a href="algorithms-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="algorithms-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="algorithms-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="algorithms-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="algorithms-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                         </li>
+						<li><a href="test.html" class="animsition-link">Тесты</a>
+                            <ul class="second-level">
+								<li><a href="test.html" class="animsition-link">Тест общий</a></li>
+								<li><a href="test-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="test-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="test-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="test-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="test-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                        </li>
+<li><a href="desktop.html" class="animsition-link">Desktop приложение</a>  </li>
+					</ul>
+				</nav>
+			<!-- mobile navbar -->
+			 <nav class="mobile-nav"></nav>
+			   <div class="menu-icon">
+			     <div class="line"></div>
+			     <div class="line"></div>
+			     <div class="line"></div>
+			   </div>
+			</div>
+		</div>
+	</header>
+
+	
+	
+	<!-- Слайдер  -->
+	<div class="site-hero">
+		<ul class="slides">
+			<li>
+				<div class="big-title uppercase montserrat-text">Параллельное Программирование</div>
+			</li>
+			<li>
+				<div class="big-title uppercase montserrat-text">Алгоритмы</div>
+			</li>
+		</ul>
+	</div>
+
+	<!-- Параллельные вычисления -->
+	<div class="container">
+		<div class="calcul">
+			<div class="col-md-5 col-sm-12">
+				<div class="row">
+					<img src="content/img/komp.jpg" alt="image">
+				</div>
+			</div>
+			<div class="col-md-offset-1 col-md-6 col-sm-12">
+				<div class="row">
+					<div class="section-title">
+						<span>Параллельные вычисления</span>
+					</div>
+					<p>
+						В современном мире существует большое количество задач, для
+                     решения которых необходимо использовать огромные вычислительные
+                     мощности. Требования к точности и скорости решения таких задач
+                     постоянно возрастают. Одним из основных способов ускорения
+                     вычислений является создание параллельных вычислительных систем.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Основные сведения -->
+	<section class="basicinf">
+		<div class="container">
+			<div class="row">
+				<div class="section-title">
+					<span>Основные сведения</span>
+					<p align="left"> <b>Параллельные вычисления </b>- это способ организации компьютерных вычислений, при котором программы разрабатываются, как набор взаимодействующих вычислительных процессов, работающих асинхронно и при этом одновременно.</p>
+					<p align="left"> <b>Параллельное программирование </b> - это техника программирования, которая использует преимущества многоядерных или многопроцессорных компьютеров и является подмножеством более широкого понятия многопоточности.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="basicinf"  style="background:#dcdbe1">
+	<div class="container">
+			<div class="row">
+				<div class="section-title">
+					<span>Суть параллельного программирования&nbsp;</span>
+					<p align="left">Параллельная программа содержит несколько процессов, работающих совместно над выполнением некоторой задачи. Каждый процесс — это последовательная программа, а точнее — последовательность операторов, выполняемых один за другим. </p>
+					<p align="left">Последовательная программа имеет один поток управления, а параллельная — несколько.</p>
+					<p align="left">Совместная работа процессов параллельной программы осуществляется с помощью их взаимодействия. Взаимодействие программируется с применением разделяемых переменных или пересылки сообщений. Если используются разделяемые переменные, то один процесс осуществляет запись в переменную, считываемую другим процессом. При пересылке сообщений один процесс отправляет сообщение, которое получает другой.</p>
+					<p align="left">При любом виде взаимодействия процессам необходима взаимная синхронизация.</p>
+				</div>
+			</div>
+		</section>
+		
+		<section class="basicinf">
+			<div class="container">
+			<div class="row">
+			<div class="col-md-7 col-sm-12 services-left wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+				<div class="row" style="margin-bottom:50px">
+					<div class="col-md-12 col-sm-12">
+						<div class="row">
+							<p align="center"> <span class="montserrat-text uppercase synchro-title">Виды синхронизации</span> </p>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<div class="row">
+							<span class="montserrat-text uppercase synchro-title"> Взаимное исключение</span>
+							<ul>
+								<p>обеспечивает, чтобы критические секции операторов не выполнялись одновременно.</p>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<div class="row">
+							<span class="montserrat-text uppercase synchro-title"> Условная синхронизация</span>
+							<ul>
+								<p>задерживает процесс до тех пор, пока не выполнится определенное условие.</p>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-12 col-sm-12">
+						<div class="row">
+							<p align="center">Пример</p>
+								<p>Взаимодействие процессов производителя и потребителя часто обеспечивается с помощью буфера в разделяемой памяти. Производитель записывает в буфер, потребитель читает из него.</p>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<div class="row">
+							<ul>
+								<p>Взаимное исключение используется чтобы предотвратить одновременное использование буфера и производителем, и потребителем (тогда может быть считано не полностью записанное сообщение) </p>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<div class="row">
+							<ul>
+								<p>Условная синхронизация используется для проверки, было ли считано потребителем последнее записанное в буфер сообщение.</p>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="col-md-5 col-sm-12 services-right wow fadeInUp animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+				<div class="row">
+					<img src="content/img/klava.jpg" alt="image">
+				</div>
+			</div>
+
+		</div>
+      </div>
+
+</section>
+		
+						
+		
+	<!-- История -->
+	<section class="basicinf">
+			<div class="row">
+				<div class="section-title">
+					<span>История развития параллелизма в архитектуре ЭВМ</span>
+				</div>
+			</div>
+	</section>
+	<!-- История - изображение  -->
+	<img src="content/img/history.jpg" width="100%" alt="image">
+
+			
+			<!-- Галерея суперкомпьютеров   -->
+		
+		<!-- Внутреннее меню   -->
+			<section style="background:#e3e8ee">
+		<div class="container">
+			<div class="row">
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp">
+					<div class="menu_bar1">
+                  <div class="plan_title montserrat-text uppercase">портфель задач</div>
+						<p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p>
+						
+						<a href="algorithms-portfel-zadach.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".1s">
+					<div class="menu_bar2">
+						<div class="plan_title montserrat-text uppercase">MAP-REDUCE</div>
+						<div><p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p></div>
+						
+						<a href="algorithms-map-reduse.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".2s">
+					<div class="menu_bar3">
+						<div class="plan_title montserrat-text uppercase">Семафор</div>
+						<p><b>Описание алгоритма</b></p>
+						<p> <b>Пример реализации</b></p>
+						<a href="algorithms-semafor.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="container" >
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp col-md-offset-2" data-wow-delay=".1s">
+					<div class="menu_bar4">
+						<div class="plan_title montserrat-text uppercase">Рандеву</div>
+						<div><p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p></div>
+						
+						<a href="algorithms-randevy.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".2s">
+					<div class="menu_bar5">
+						<div class="plan_title montserrat-text uppercase">FCFS</div>
+						<p><b>Описание алгоритма</b></p>
+						<p> <b>Пример реализации</b></p>
+						<a href="algorithms-fcfs.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+	<!-- Подвал -->
+	<footer class="main-footer wow fadeInUp">
+		<div class="container">
+			<div class="col-md-8 col-sm-12">
+				<div class="row">
+					<div class="uppercase gray-text">
+						<d>Ивановский Государственный Энергетический Университет.</d>
+						<d>Кафедра Высокопроизводительных Вычислительных Систем. </d>
+						<d>Алгоритмы Параллельного Программирования.</d>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-12" style="text-align:right">
+				<div class="row">
+					<div class="uppercase gray-text">
+						 Полякова Ульяна &copy;2020
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+      <!-- SCRIPTS -->
+	<script type="text/javascript" src="content/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="content/js/isotope.pkgd.min.js"></script>
+	<script type="text/javascript" src="content/js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="content/js/smoothScroll.js"></script>
+	<script type="text/javascript" src="content/js/jquery.animsition.min.js"></script>
+	<script type="text/javascript" src="content/js/wow.min.js"></script>
+	<script type="text/javascript" src="content/js/main.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+		$(window).load(function() {
+			new WOW().init();
+
+			// initialise flexslider
+			$('.site-hero').flexslider({
+				animation: "fade",
+				directionNav: false,
+				controlNav: false, 
+				keyboardNav: true,
+				slideToStart: 0,
+				animationLoop: true,
+				pauseOnHover: false,
+				slideshowSpeed: 4000, 
+			});
+
+
+			// initialize isotope
+			var $container = $('.portfolio_container');
+			$container.isotope({
+				filter: '*',
+			});
+		 
+			$('.portfolio_filter a').click(function(){
+				$('.portfolio_filter .active').removeClass('active');
+				$(this).addClass('active');
+		 
+				var selector = $(this).attr('data-filter');
+				$container.isotope({
+					filter: selector,
+					animationOptions: {
+						duration: 500,
+						animationEngine : "jquery"
+					}
+				});
+				return false;
+			}); 
+		});
+	</script>
+	
+</body>
+</html>

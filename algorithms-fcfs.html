@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parallel Programming Algoritms</title>
+	<!-- META TAGS -->
+	 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Polyakova Ulyana">
+<meta name="description" content="Теория и тесты по алгоритмам параллельного программирования"> 
+<!-- STYLES -->
+	<link rel="stylesheet" href="content/css/bootstrap.min.css">
+	<link rel="stylesheet" href="content/css/ionicons.min.css">
+	<link rel="stylesheet" href="content/css/animsition.min.css">
+	<link rel="stylesheet" href="content/css/flexslider.css">
+	<link rel="stylesheet" href="content/css/animate.css">
+	<link rel="stylesheet" href="content/css/style.css">
+</head>
+<body class="animsition">
+	<!-- Шапка -->
+	<header class="main-header">
+		<div class="container">
+			<div class="menu">
+				<!-- Навигация -->
+				<nav class="desktop-nav">
+					<ul class="first-level">
+						<li><a href="index.html" class="animsition-link">Главная</a></li>
+						<li><a  href="algorithms.html" class="animsition-link">Теория алгоритмов</a>
+                           <ul class="second-level">
+								<li><a href="algorithms.html" class="animsition-link">Алгоритмы</a></li>
+								<li><a href="algorithms-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="algorithms-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="algorithms-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="algorithms-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="algorithms-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                         </li>
+						<li><a href="test.html" class="animsition-link">Тесты</a>
+                            <ul class="second-level">
+								<li><a href="test.html" class="animsition-link">Тест общий</a></li>
+								<li><a href="test-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="test-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="test-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="test-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="test-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                        </li>
+<li><a href="desktop.html" class="animsition-link">Desktop приложение</a>  </li>
+					</ul>
+				</nav>
+			<!-- mobile navbar -->
+			 <nav class="mobile-nav"></nav>
+			   <div class="menu-icon">
+			     <div class="line"></div>
+			     <div class="line"></div>
+			     <div class="line"></div>
+			   </div>
+			</div>
+		</div>
+	</header>
+
+	<!-- HERO SECTION  -->
+	<div class="site-hero_2">
+		<div class="page-title">
+			<div class="big-title montserrat-text uppercase">FCFS </div>
+			<div class="big-title montserrat-text uppercase">First Come – First Served</div>
+			<p>Обработка запросов</p>
+		</div>
+	</div>
+
+<div class="container">
+			<div class="col-md-5 col-sm-12">
+				<div class="row">
+					<img src="content/img/fcfs.jpg" alt="image">
+				</div>
+			</div>
+			<div class="col-md-offset-1 col-md-6 col-sm-12">
+				<div class="row">
+					<div class="section-title">
+					<span>Суть алгоритма</span>
+					<p align="left">
+					 Обращение нескольких процессов к общему ресурсу может выполняться с соблюдением очередности FCFS и без соблюдения ее.</p>
+					<p align="left"><b>В стратегии FCFS</b> первый процесс, обратившийся к ресурсам в случае недостатка их останавливается и ждет пока будут представлены все ресурсы, в это время другой процесс, которому достаточно имеющихся ресурсов останавливается и будет ждать пока не обслужат первый процесс. </p> 
+				</div>
+				</div>
+			</div>
+		</div>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="section-title">
+					<span>Проиллюстрируем стратегию на задаче о счете.</span>
+				</div>
+				<p align="left"><b>Формулировка задачи</b> </p>
+			  <p align="left">  Несколько людей (процессов) используют общий счет в банке, каждый может помещать средства на счет. Текущий баланс равен сумме всех вложенных средств минус сумма всех снятых средств. Баланс никогда не должен становиться отрицательным.  Помещать средства можно без задержки, кроме случаев взаимного исключения, при изъятии средств возможна пауза, пока на счете не будет достаточно суммы. Представить банк, в котором клиент – это процесс.</p>
+				<div class="col-md-offset-1 col-sm-12 col-md-10">
+			<p align="left"> 1.Смоделировать код, в котором извлечение происходящих средствами стратегии FCFS.</p>
+            <p align="left"> 2.Смоделировать код, в котором порядок FCFS не соблюдается.</p>
+			</div>
+				<div class="col-sm-12 col-md-12 col-md-offset-0">
+				<p align="left"> <b> Нулевой (0) процесс – банк, все остальные процессы – клиенты.</b></p>
+				</div>
+			</div>
+			<img src="content/img/formyl/fcfs/fcfs.jpg" alt="image">
+			<pre class="cpp" style="font-family:monospace;"><span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span> <span style="color: #000040;">**</span>argv<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> size, rank<span style="color: #008080;">;</span>
+	MPI_Status status<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> msgtag <span style="color: #000080;">=</span> <span style="color: #0000dd;">4</span><span style="color: #008080;">;</span>
+	<span style="color: #666666;">//Шапочка</span>
+	<span style="color: #339900;">#define lmax 10 //сколько раз будет крутиться в банке </span>
+	<span style="color: #339900;">#define n 2 // размер массива</span>
+	<span style="color: #339900;">#define omax 10 // максимальное число клиентов</span>
+	<span style="color: #0000ff;">int</span> pr <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> nz <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span><span style="color: #008080;">;</span> <span style="color: #666666;">// несгораемая сумма</span>
+	<span style="color: #0000ff;">int</span> mag<span style="color: #008000;">&#91;</span>omax <span style="color: #000040;">*</span> n<span style="color: #008000;">&#93;</span>, balance, z<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span> <span style="color: #666666;">// очередь, баланс, запрос</span>
+	<span style="color: #0000ff;">int</span> <span style="color: #000040;">*</span>p1, <span style="color: #000040;">*</span>nmag, kmax, flag, sum, m<span style="color: #008080;">;</span> <span style="color: #666666;">//текущий указатель в очереди, начало очереди, макс число клиентов в очереди</span>
+p1 <span style="color: #000080;">=</span> nmag <span style="color: #000080;">=</span> mag<span style="color: #008080;">;</span>
+<span style="color: #666666;">//на нулевом процессе выделим память под очередь. Определим начало баланса, проинициализируем вспомогательные переменные</span>
+	<span style="color: #0000ff;">FILE</span> <span style="color: #000040;">*</span>f<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">char</span> str<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">256</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	sprintf_s<span style="color: #008000;">&#40;</span>str, <span style="color: #FF0000;">&quot;rank%d.txt&quot;</span>, rank<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	fopen_s<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>f, str, <span style="color: #FF0000;">&quot;w&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>rank<span style="color: #008000;">&#41;</span>
+	<span style="color: #008000;">&#123;</span>
+		p1 <span style="color: #000080;">=</span> nmag <span style="color: #000080;">=</span> mag<span style="color: #008080;">;</span>
+		balance <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span><span style="color: #008080;">;</span>
+		kmax <span style="color: #000080;">=</span> size <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> 
+	<span style="color: #008000;">&#125;</span>
+<span style="color: #666666;">//процессы – клиенты определят свой  статус (взять – положить) и сумму</span>
+<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>rank<span style="color: #008000;">&#41;</span>
+	<span style="color: #008000;">&#123;</span>
+		z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">abs</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">rand</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">%</span> <span style="color: #0000dd;">1000</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">-</span> rank<span style="color: #008000;">&#41;</span> <span style="color: #000040;">%</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+		z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">rand</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">%</span> <span style="color: #0000dd;">100</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span><span style="color: #000040;">*</span>rank<span style="color: #008080;">;</span>
+		<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f,<span style="color: #FF0000;">&quot;New query| rank = %d status = %d sum = %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, rank, z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span>, z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #666666;">//fprintf(f, &quot;rank = %d stat&quot;)</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">fclose</span><span style="color: #008000;">&#40;</span>f<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	MPI_Barrier<span style="color: #008000;">&#40;</span>MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	fopen_s<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>f, str, <span style="color: #FF0000;">&quot;a&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> l <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> l <span style="color: #000080;">&lt;</span> lmax, pr <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> l<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+	<span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;DAY: %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, l<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>rank<span style="color: #008000;">&#41;</span><span style="color: #666666;">// Bank</span>
+		<span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;BALANCE  = %d MINIMUM = %d KMAX = %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, balance, nz, kmax<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> kmax<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span><span style="color: #666666;">//kmax-число клиентов, готовых работать с банком</span>
+			<span style="color: #008000;">&#123;</span>
+		MPI_Recv<span style="color: #008000;">&#40;</span>z, n, MPI_INT, MPI_ANY_SOURCE, msgtag, MPI_COMM_WORLD,     <span style="color: #000040;">&amp;</span>status<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	                                   <span style="color: #666666;">//fprintf(f, &quot;Get Message| from proc = %d z[0] = %d\n&quot;, status.MPI_SOURCE, z[0]);</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span>  <span style="color: #666666;">//вклад</span>
+				<span style="color: #008000;">&#123;</span>
+	<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;Query(Get money)| proc = %d z[0] = %d z[1] = %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>,  status.<span style="color: #007788;">MPI_SOURCE</span>,  z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span>, z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>                                            
+					balance <span style="color: #000040;">+</span><span style="color: #000080;">=</span> z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+					pr <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+	                   MPI_Send<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>pr, <span style="color: #0000dd;">1</span>, MPI_INT, status.<span style="color: #007788;">MPI_SOURCE</span>, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>                                                                        
+				<span style="color: #008000;">&#125;</span>
+				<span style="color: #0000ff;">else</span> <span style="color: #666666;">//снять</span>
+				<span style="color: #008000;">&#123;</span>
+					<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">&gt;</span> balance <span style="color: #000040;">-</span> nz<span style="color: #008000;">&#41;</span>
+					<span style="color: #008000;">&#123;</span>
+						<span style="color: #666666;">//печать</span>
+	             <span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;Query(Give money Fail)| proc = %d z[1] = %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, status.<span style="color: #007788;">MPI_SOURCE</span>, z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>                                
+						<span style="color: #000040;">*</span>p1 <span style="color: #000080;">=</span> status.<span style="color: #007788;">MPI_SOURCE</span><span style="color: #008080;">;</span>
+						p1<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+						<span style="color: #000040;">*</span>p1 <span style="color: #000080;">=</span> z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+						p1<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+					<span style="color: #008000;">&#125;</span>
+					<span style="color: #0000ff;">else</span>
+					<span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;Query(Give money True)| proc = %d z[1] = %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, status.<span style="color: #007788;">MPI_SOURCE</span>, z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>                                                                               
+						balance <span style="color: #000040;">-</span><span style="color: #000080;">=</span> z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+						pr <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		MPI_Send<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>pr, <span style="color: #0000dd;">1</span>, MPI_INT, status.<span style="color: #007788;">MPI_SOURCE</span>, msgtag MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>,                                                                   
+&nbsp;
+					<span style="color: #008000;">&#125;</span>
+				<span style="color: #008000;">&#125;</span>
+			<span style="color: #008000;">&#125;</span>
+<span style="color: #666666;">// Работа с очередью</span>
+			<span style="color: #0000ff;">int</span> flag <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span><span style="color: #008000;">&#40;</span>p1 <span style="color: #000040;">!</span><span style="color: #000080;">=</span> nmag<span style="color: #008000;">&#41;</span> <span style="color: #000040;">&amp;&amp;</span> flag<span style="color: #008000;">&#41;</span> <span style="color: #666666;">//пока очередь не пустая </span>
+			<span style="color: #008000;">&#123;</span>
+				m <span style="color: #000080;">=</span> <span style="color: #000040;">*</span>nmag<span style="color: #008080;">;</span>
+				sum <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>nmag <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+				<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>sum <span style="color: #000080;">&lt;</span> balance <span style="color: #000040;">-</span> nz<span style="color: #008000;">&#41;</span>
+				<span style="color: #008000;">&#123;</span>
+					balance <span style="color: #000040;">-</span><span style="color: #000080;">=</span> sum<span style="color: #008080;">;</span>
+					pr <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+					MPI_Send<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>pr, <span style="color: #0000dd;">1</span>, MPI_INT, m, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;Queue (True): proc = %d balance = %d sum =  %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, m, balance, sum<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+					<span style="color: #666666;">//if (kmax &lt; size - 1)</span>
+					<span style="color: #666666;">//	kmax++;</span>
+					<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;=</span> <span style="color: #008000;">&#40;</span>p1 <span style="color: #000040;">-</span> nmag<span style="color: #008000;">&#41;</span> <span style="color: #000040;">/</span> n<span style="color: #008080;">;</span> i <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span>
+					<span style="color: #008000;">&#123;</span>
+						<span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>nmag <span style="color: #000040;">+</span> i<span style="color: #008000;">&#41;</span> <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>nmag <span style="color: #000040;">+</span> i <span style="color: #000040;">+</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+						<span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>nmag <span style="color: #000040;">+</span> i <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>nmag <span style="color: #000040;">+</span> i <span style="color: #000040;">+</span> <span style="color: #0000dd;">3</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+					<span style="color: #008000;">&#125;</span>
+					p1 <span style="color: #000040;">-</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+				<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000ff;">else</span>   <span style="color: #666666;">//всем тем клиентам, которые остались в очереди прислать pr = 0  и проверить чему равно kmax, если kmax = 0, то банк закрыть</span>
+				<span style="color: #008000;">&#123;</span>
+					flag <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+					<span style="color: #0000ff;">int</span> count <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+					<span style="color: #666666;">//for (int i = 0; i &lt;= (p1 - nmag) / n; i += 2)</span>
+					<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> <span style="color: #000040;">*</span>i <span style="color: #000080;">=</span> nmag<span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> p1<span style="color: #008080;">;</span> i <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span>
+					<span style="color: #008000;">&#123;</span>
+						count<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;Queue (Fail)| proc = %d WON'T GET MONEY balance = %d sum = %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, <span style="color: #000040;">*</span>i, balance, <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>i <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+						<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>kmax <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span>
+						<span style="color: #008000;">&#123;</span>
+							pr <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+					MPI_Send<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>pr, <span style="color: #0000dd;">1</span>, MPI_INT, <span style="color: #000040;">*</span>i, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+						<span style="color: #008000;">&#125;</span>
+						<span style="color: #0000ff;">else</span>
+						<span style="color: #008000;">&#123;</span>
+							pr <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+					MPI_Send<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>pr, <span style="color: #0000dd;">1</span>, MPI_INT, <span style="color: #000040;">*</span>i, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+						<span style="color: #008000;">&#125;</span>
+					<span style="color: #008000;">&#125;</span>
+					kmax <span style="color: #000080;">=</span> size <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span> <span style="color: #000040;">-</span> count<span style="color: #008080;">;</span>
+				<span style="color: #008000;">&#125;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000ff;">else</span> 
+		<span style="color: #008000;">&#123;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>pr<span style="color: #000080;">==</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span>
+			<span style="color: #008000;">&#123;</span>
+		        MPI_Send<span style="color: #008000;">&#40;</span>z, n, MPI_INT, <span style="color: #0000dd;">0</span>, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;Send: rank = %d status = %d sum = %d l = %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, rank, z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span>, z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>, l<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			MPI_Recv<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>pr, <span style="color: #0000dd;">1</span>, MPI_INT, <span style="color: #0000dd;">0</span>, msgtag, MPI_COMM_WORLD, <span style="color: #000040;">&amp;</span>status<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>pr <span style="color: #000080;">==</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span>
+			<span style="color: #008000;">&#123;</span>
+				<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;rank = %d EXIT<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, rank<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+				<span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>pr<span style="color: #000080;">==</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span>
+			<span style="color: #008000;">&#123;</span>
+				Sleep<span style="color: #008000;">&#40;</span><span style="color: #0000dd;">600</span><span style="color: #000040;">+</span><span style="color: #0000dd;">100</span><span style="color: #000040;">*</span>rank<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+				z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #008000;">&#40;</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">rand</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">%</span> <span style="color: #0000dd;">1000</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">-</span> rank<span style="color: #008000;">&#41;</span> <span style="color: #000040;">%</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+				z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">rand</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">%</span> <span style="color: #0000dd;">100</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span><span style="color: #000040;">*</span>rank<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;New query| rank = %d status = %d sum = %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, rank, z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span>, z<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #666666;">//MPI_Barrier(MPI_COMM_WORLD);</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">fclose</span><span style="color: #008000;">&#40;</span>f<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span> <span style="color: #000040;">!</span>rank <span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		pr <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span> <span style="color: #0000ff;">int</span> ll <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> ll <span style="color: #000080;">&lt;</span>size<span style="color: #008080;">;</span> ll<span style="color: #000040;">++</span> <span style="color: #008000;">&#41;</span> MPI_Send <span style="color: #008000;">&#40;</span> <span style="color: #000040;">&amp;</span>pr, <span style="color: #0000dd;">1</span>, MPI_INT, ll, msgtag, MPI_COMM_WORLD <span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  
+	<span style="color: #008000;">&#125;</span>
+	MPI_Finalize<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;</pre>
+			<div class="col-md-12 col-sm-12 services-left wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+				<div class="row" style="margin-bottom:50px">
+					<div class="col-md-6 col-sm-12">
+						<div class="row">
+							<p align="center"><b>с FCFS</b> </p>
+								<img src = "content/img/formyl/fcfs/wthfcfs.jpg" alt="image">
+								<pre class="cpp" style="font-family:monospace;"><span style="color: #0000ff;">int</span> flag <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span><span style="color: #008000;">&#40;</span>p1 <span style="color: #000040;">!</span><span style="color: #000080;">=</span> nmag<span style="color: #008000;">&#41;</span> <span style="color: #000040;">&amp;&amp;</span> flag<span style="color: #008000;">&#41;</span> <span style="color: #666666;">//пока очередь не пустая </span>
+	<span style="color: #008000;">&#123;</span>
+	              m <span style="color: #000080;">=</span> <span style="color: #000040;">*</span>nmag<span style="color: #008080;">;</span>
+		sum <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>nmag <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>sum <span style="color: #000080;">&lt;</span> balance <span style="color: #000040;">-</span> nz<span style="color: #008000;">&#41;</span>
+		<span style="color: #008000;">&#123;</span>
+			balance  <span style="color: #000040;">-</span> <span style="color: #000080;">=</span> sum<span style="color: #008080;">;</span>
+			pr <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		MPI_Send<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>pr, <span style="color: #0000dd;">1</span>, MPI_INT, m, msgtag,  
+                                                                MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	       <span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;Queue (True): proc = %d balance =  %d 
+                                                   sum = %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, m, balance, sum<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>                                                                                                                             
+            <span style="color: #666666;">//if (kmax &lt; size - 1)</span>
+            <span style="color: #666666;">//kmax++;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;=</span> <span style="color: #008000;">&#40;</span>p1 <span style="color: #000040;">-</span> nmag<span style="color: #008000;">&#41;</span> <span style="color: #000040;">/</span> n<span style="color: #008080;">;</span> i <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span>
+	<span style="color: #008000;">&#123;</span>
+	<span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>nmag <span style="color: #000040;">+</span> i<span style="color: #008000;">&#41;</span> <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>nmag <span style="color: #000040;">+</span> i <span style="color: #000040;">+</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>nmag <span style="color: #000040;">+</span> i <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>nmag <span style="color: #000040;">+</span> i <span style="color: #000040;">+</span> <span style="color: #0000dd;">3</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	p1 <span style="color: #000040;">-</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+         <span style="color: #008000;">&#125;</span>
+      <span style="color: #0000ff;">else</span>   <span style="color: #666666;">//всем тем клиентам, которые остались в очереди прислать pr = 0  и проверить чему равно kmax,если kmax = 0, то банк закрыть</span>
+          <span style="color: #008000;">&#123;</span>
+	flag <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> 
+               <span style="color: #666666;">//печать</span>
+          <span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span>
+	kmax <span style="color: #000080;">=</span> <span style="color: #008000;">&#40;</span>p1 <span style="color: #000040;">-</span> nmag<span style="color: #008000;">&#41;</span> <span style="color: #000040;">/</span><span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i<span style="color: #000080;">&lt;</span>kmax<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+                 pr<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> 
+                 m <span style="color: #000080;">=</span><span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>nmag <span style="color: #000040;">+</span> <span style="color: #0000dd;">2</span><span style="color: #000040;">*</span>i<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+                          MPI_Send<span style="color: #008000;">&#40;</span>z, n, MPI_INT, <span style="color: #0000dd;">0</span>, msgtag,            
+                                                   MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #666666;">//печать</span>
+        kmax <span style="color: #000080;">=</span> <span style="color: #008000;">&#40;</span>size <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> – kmax<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #666666;">// if ( !kmax ) {  //печать, что в банке нет денег, банк закрывается, все в очереди</span>
+&nbsp;</pre>
+																
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<div class="row">
+							<p align="center"><b>без FCFS</b> </p>
+							<pre class="cpp" style="font-family:monospace;"><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span>p2 <span style="color: #000080;">=</span> nmag<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>p1 <span style="color: #000040;">!</span><span style="color: #000080;">=</span> p2<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	m <span style="color: #000080;">=</span> <span style="color: #000040;">*</span>p2<span style="color: #008080;">;</span>
+	sum <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>p2 <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>sum <span style="color: #000080;">&lt;</span> balance <span style="color: #000040;">-</span> nz<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		balance <span style="color: #000040;">-</span><span style="color: #000080;">=</span> sum<span style="color: #008080;">;</span>
+		pr <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		MPI_Send<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>pr, <span style="color: #0000dd;">1</span>, MPI_INT, m, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000dd;">fprintf</span><span style="color: #008000;">&#40;</span>f, <span style="color: #FF0000;">&quot;Queue (True): proc = %d balance = %d sum = 
+                %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, m, balance, sum<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		   <span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> <span style="color: #008000;">&#40;</span>p1 <span style="color: #000040;">-</span> p2<span style="color: #008000;">&#41;</span> <span style="color: #000040;">/</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span> j <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			  <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>p2 <span style="color: #000040;">+</span> j<span style="color: #008000;">&#41;</span> <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>p2 <span style="color: #000040;">+</span> j <span style="color: #000040;">+</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			  <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>p2 <span style="color: #000040;">+</span> j <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span>p2 <span style="color: #000040;">+</span> j <span style="color: #000040;">+</span> <span style="color: #0000dd;">3</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		   <span style="color: #008000;">&#125;</span>
+&nbsp;
+		   p1 <span style="color: #000040;">-</span><span style="color: #000080;">=</span> p2<span style="color: #008080;">;</span>
+	 <span style="color: #008000;">&#125;</span>
+		   <span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+			pr <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+			MPI_Send<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>pr, <span style="color: #0000dd;">1</span>, MPI_INT, m, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #666666;">//печать</span>
+			p2 <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+		    <span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+&nbsp;</pre>
+								
+		</div>
+	</div>
+   </div>	
+   </div>
+</div>
+</section>
+	<section style="background:#e3e8ee">
+		<div class="container">
+			<div class="row">
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp col-md-offset-2">
+					<div class="menu_bar1">
+                  <div class="plan_title montserrat-text uppercase">портфель задач</div>
+						<p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p>
+						
+						<a href="algorithms-portfel-zadach.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".1s">
+					<div class="menu_bar2">
+						<div class="plan_title montserrat-text uppercase">MAP-REDUCE</div>
+						<div><p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p></div>
+						
+						<a href="algorithms-map-reduse.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="container" >
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp col-md-offset-2" data-wow-delay=".1s">
+					<div class="menu_bar4">
+						<div class="plan_title montserrat-text uppercase">Рандеву</div>
+						<div><p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p></div>
+						
+						<a href="algorithms-randevy.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".2s">
+					<div class="menu_bar3">
+						<div class="plan_title montserrat-text uppercase">Семафор</div>
+						<p><b>Описание алгоритма</b></p>
+						<p> <b>Пример реализации</b></p>
+						
+						<a href="algorithms-semafor.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	
+
+
+
+	<!-- Подвал -->
+	<footer class="main-footer wow fadeInUp">
+		<div class="container">
+			<div class="col-md-8 col-sm-12">
+				<div class="row">
+					<div class="uppercase gray-text">
+						Ивановский Государственный Энергетический Университет
+						
+						<d>Кафедра Высокопроизводительных Вычислительных Систем </d>
+						<d>Алгоритмы Параллельного Программирования</d>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-12" style="text-align:right">
+				<div class="row">
+					<div class="uppercase gray-text">
+						created by Полякова Ульяна &copy;2020
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="content/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="content/js/jquery.social-buttons.min.js"></script>
+	<script type="text/javascript" src="content/js/smoothScroll.js"></script>
+	<script type="text/javascript" src="content/js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="content/js/jquery.animsition.min.js"></script>
+	<script type="text/javascript" src="content/js/wow.min.js"></script>
+	<script type="text/javascript" src="content/js/main.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(window).load(function() {
+			new WOW().init();
+			// initialize flexslider
+			$('.project_images').flexslider({
+				directionNav : false,
+				controlNav : false
+			});
+
+			// initialize social buttons
+			$("[data-social]").socialButtons();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parallel Programming Algoritms</title>
+	<!-- META TAGS -->
+	 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Polyakova Ulyana">
+<meta name="description" content="Теория и тесты по алгоритмам параллельного программирования"> 
+<!-- STYLES -->
+	<link rel="stylesheet" href="content/css/bootstrap.min.css">
+	<link rel="stylesheet" href="content/css/ionicons.min.css">
+	<link rel="stylesheet" href="content/css/animsition.min.css">
+	<link rel="stylesheet" href="content/css/flexslider.css">
+	<link rel="stylesheet" href="content/css/animate.css">
+	<link rel="stylesheet" href="content/css/style.css">
+</head>
+<body class="animsition">
+	<!-- Шапка -->
+	<header class="main-header">
+		<div class="container">
+			<div class="menu">
+				<!-- Навигация -->
+				<nav class="desktop-nav">
+					<ul class="first-level">
+						<li><a href="index.html" class="animsition-link">Главная</a></li>
+						<li><a  href="algorithms.html" class="animsition-link">Теория алгоритмов</a>
+                           <ul class="second-level">
+								<li><a href="algorithms.html" class="animsition-link">Алгоритмы</a></li>
+								<li><a href="algorithms-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="algorithms-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="algorithms-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="algorithms-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="algorithms-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                         </li>
+						<li><a href="test.html" class="animsition-link">Тесты</a>
+                            <ul class="second-level">
+								<li><a href="test.html" class="animsition-link">Тест общий</a></li>
+								<li><a href="test-portfel-zadach.html" class="animsition-link">Портфель задач</a></li>
+								<li><a href="test-map-reduse.html" class="animsition-link">Map-reduse</a></li>
+                                <li><a href="test-semafor.html" class="animsition-link">Семафор</a></li>
+                                <li><a href="test-randevy.html" class="animsition-link">Рандеву</a></li>
+                                <li><a href="test-fcfs.html" class="animsition-link">FCFS</a></li>
+							</ul>
+                        </li>
+<li><a href="desktop.html" class="animsition-link">Desktop приложение</a>  </li>
+
+					</ul>
+				</nav>
+			<!-- mobile navbar -->
+			 <nav class="mobile-nav"></nav>
+			   <div class="menu-icon">
+			     <div class="line"></div>
+			     <div class="line"></div>
+			     <div class="line"></div>
+			   </div>
+			</div>
+		</div>
+	</header>
+
+	<!-- HERO SECTION  -->
+	<div class="site-hero_2">
+		<div class="page-title">
+			<div class="big-title montserrat-text uppercase">Портфель задач</div>
+		</div>
+	</div>
+
+<div class="container">
+			<div class="col-md-5 col-sm-12">
+				<div class="row">
+					<img src="content/img/portfel.gif" alt="image">
+				</div>
+			</div>
+			<div class="col-md-offset-1 col-md-6 col-sm-12">
+				<div class="row">
+					<div class="section-title">
+					<span>Суть алгоритма</span>
+					<p align="left">
+					 Реализация параллельных вычислений возможна с использованием так называемого портфеля задач.</p>
+					<p align="left">Задача здесь представляет независимую единицу работы. </p>
+					<p align="left">  Задачи помещаются в “портфель”, разделяемый всеми процессами,
+                      работающими по программе.</p>
+				    <p align="left"><b>while(true) { </b></p>
+					<p align="left" ><b>взять задачу из "портфеля";</b> </p>
+					<p align="left"><b>if(задач больше нет) </b></p>
+					<p align="left"><b>break; // выход из цикла</b> </p>
+					<p align="left"><b>выполнить задачу; </b></p>
+					<p align="left"><b>}</b> </p>			
+				</div>
+				</div>
+			</div>
+		</div>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="section-title">
+					<span>Достоинства алгоритма</span>					
+				
+			
+         <div class="col-md-12 wow fadeInUp" data-wow-delay=".1s">
+					<ul class="list">
+						<li><p align="left"> <b>Прост в исполнении </b> </p>
+							<p align="left">Главное соблюсти несколько требований:  </p>
+							<p align="left"> – нужно дать представление задач; </p>
+							<p align="left"> – определить портфель (набор задач); </p>
+							<p align="left">– дать программу выполнения задачи; </p>
+							<p align="left"> – определить критерий ее окончания; </p>
+						</li>
+						<li><p align="left"> <b>Программы с использованием портфеля задач легко масштабируются простым изменением числа процессов</b> </p>
+							<p align="left">В том смысле, что может работать с любым числом потоков (процессов) и любым количеством задач.  </p>
+							<p align="left">Однако, при увеличении количества рабочих процессов необязательно будет увеличиваться ускорение </p>
+						</li>
+						<li><p align="left"> <b>Алгоритм позволяет балансировать нагрузку на процессы.</b> </p>
+							<p align="left">Если более длительная задача на одном процессе занимает больше времени, другие процессы выполняют остальные задачи.</p>
+							<p align="left">То есть освободившиеся процессы берут на себя решение новых задач из портфеля  </p>
+						</li>
+					</ul>
+				</div>
+			</div>
+				
+			</div>
+	  </div>
+	</section>
+		
+		<section>
+	<div class="container">
+		<div class="col-md-12 col-sm-12 services-left wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+				<div class="row" style="margin-bottom:50px">
+					<div class="col-md-12 col-sm-12">
+						<div class="row">
+							<div class="section-title">
+					             <span>Пример использования алгоритма "портфель задач"</span>	 </div>
+							
+					
+						<p align="center"> <span class="montserrat-text uppercase synchro-title">Задача: Умножить матрицу на вектор с помощью алгоритма "портфель задач"</span> </p>
+					<div class="col-md-6 col-sm-12">
+						<div class="row">
+							<p align="center"><b>OpenMP</b> </p>
+							<ul>
+								<p> Портфель: матрица a и вектора b и c – в общей памяти </p>
+								<p>a * b = c   </p>
+								<p>a[n][n], b[n], c[n] </p>
+								<p> в задаче умножения стоки i-й матрицы a на вектор b и получение вектора c.</p>
+								<img src = "content/img/formyl/pz/pzomp.jpg" alt="image">
+								
+								<pre class="cpp" style="font-family:monospace;">
+<span style="color: #339900;">#include &quot;pch.h&quot;</span>
+<span style="color: #339900;">#include &lt;omp.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> n <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> a<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span>, b<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span>, c<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #008000;">&#123;</span> <span style="color: #0000dd;">0</span> <span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+&nbsp;
+		b<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+&nbsp;
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+&nbsp;
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>j<span style="color: #008000;">&#41;</span>
+				a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> i<span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">else</span>
+				a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">int</span> myi, i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>, j<span style="color: #008080;">;</span>
+    <span style="color: #339900;">#pragma omp parallel shared (i,a,b,c)</span>
+    <span style="color: #0000ff;">private</span><span style="color: #008080;">:</span> <span style="color: #008000;">&#40;</span>myi, i, j<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>i<span style="color: #008000;">&#41;</span>
+	<span style="color: #008000;">&#123;</span>
+    <span style="color: #339900;">#pragma omp </span>
+		<span style="color: #008000;">&#123;</span>
+			myi <span style="color: #000080;">=</span> i<span style="color: #008080;">;</span>
+			i<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span> <span style="color: #666666;">//Внутри критической секции всегда находится один тред.</span>
+	<span style="color: #666666;">//Порядок входа треда в секцию - произвольный</span>
+&nbsp;
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">&gt;</span> n<span style="color: #008000;">&#41;</span> <span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> sum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+		sum <span style="color: #000040;">+</span><span style="color: #000080;">=</span> a<span style="color: #008000;">&#91;</span>myi<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	c<span style="color: #008000;">&#91;</span>myi<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> sum<span style="color: #008080;">;</span>
+&nbsp;
+	 <span style="color: #008000;">&#125;</span>
+			 <span style="color: #0000ff;">return</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+ <span style="color: #008000;">&#125;</span>
+&nbsp;
+&nbsp;</pre>
+								
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<div class="row">
+							<p align="center"><b>MPI</b> </p>
+							<ul>
+								<p> Портфель: rank=0, на который будет определены a[n][n], b[n], c[n] и портфель будет раздавать строки всем остальным процессам. </p>
+								<p>Портфель будет получать вычислять координаты вектора с от всех остальных процессов.</p>
+								<p>Портфель будет печатать результирующий вектор с. </p>
+								<p> Условием окончания будет служить значение -1 в первом элементе присланного массива.</p>
+								<img src = "content/img/formyl/pz/pzmpi.jpg" alt="image">
+								  
+								<pre class="cpp" style="font-family:monospace;">
+  <span style="color: #339900;">#define n 100</span>
+  <span style="color: #339900;">#define m 2</span>
+  <span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span> <span style="color: #000040;">**</span> argv<span style="color: #008000;">&#41;</span>
+  <span style="color: #008000;">&#123;</span> <span style="color: #000040;">/</span>шапка
+	<span style="color: #0000ff;">int</span> b<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span>, c<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #008000;">&#123;</span> <span style="color: #0000dd;">0</span> <span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span>
+	cpr<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>m<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #008000;">&#123;</span> <span style="color: #0000dd;">0</span>, <span style="color: #0000dd;">0</span> <span style="color: #008000;">&#125;</span>, car<span style="color: #008000;">&#91;</span>n <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> i, j, myi, pr <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>rank<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> <span style="color: #666666;">//портфель</span>
+		<span style="color: #0000ff;">int</span> a<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span>
+			<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				b<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+				<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+					<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>j<span style="color: #008000;">&#41;</span> a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> i<span style="color: #008080;">;</span>
+					<span style="color: #0000ff;">else</span> a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+				<span style="color: #008000;">&#125;</span>
+			<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+&nbsp;
+	<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> n <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> a<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span>, b<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span>, c<span style="color: #008000;">&#91;</span>n<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #008000;">&#123;</span> <span style="color: #0000dd;">0</span> <span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+&nbsp;
+		b<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+&nbsp;
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+&nbsp;
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>j<span style="color: #008000;">&#41;</span>
+				a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> i<span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">else</span>
+				a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+&nbsp;
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> size<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+		MPI_Send<span style="color: #008000;">&#40;</span>b, n, MPI_INT, i, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+	myi <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> link <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+&nbsp;
+	<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>pr<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>myi <span style="color: #000080;">&gt;=</span> n<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> <span style="color: #666666;">// n-количество строк  </span>
+			car<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+			myi <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+&nbsp;
+		<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+			car<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> myi<span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+				car<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> a<span style="color: #008000;">&#91;</span>myi<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+			MPI_Send<span style="color: #008000;">&#40;</span>car, n <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span>, MPI_INT, link, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			myi<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			link<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>link <span style="color: #000080;">=</span> <span style="color: #000040;">-</span>size <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span>
+				link <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+&nbsp;
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> size<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		MPI_Send<span style="color: #008000;">&#40;</span>car, <span style="color: #0000dd;">1</span>, MPI_INT, i, msgtag, MPI_COMM_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #666666;">//Рассылает только одно значение для остановки всех рабочих процессов</span>
+		<span style="color: #0000ff;">int</span> count<span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> size<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+			MPI_Recv<span style="color: #008000;">&#40;</span>cpr, n<span style="color: #000040;">*</span>m, MPI_INT, i, msgtag, MPI_COMM_WORLD, <span style="color: #000040;">&amp;</span>status<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		MPI_Get_count<span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>status, MPI_INT, <span style="color: #000040;">&amp;</span>count<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> <span style="color: #666666;">// возвращает MPI_Success</span>
+		<span style="color: #666666;">//Функция возвращает кол-во элементов в принятом сообщении, информация о            </span>
+                            принятом сообщении сохраняется в последнем параметре MPI_Recv
+&nbsp;
+                                        Функция имеет прототип 
+&nbsp;
+		<span style="color: #0000ff;">int</span> MPI_Get_count<span style="color: #008000;">&#40;</span>MPI_Status <span style="color: #000040;">*</span> status, MPI_Datatype, <span style="color: #0000ff;">int</span> <span style="color: #000040;">*</span> count<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+		<span style="color: #666666;">// Определили кол-во элементов, но кол-во координат будет другое</span>
+&nbsp;
+		count <span style="color: #000040;">/</span><span style="color: #000080;">=</span> m<span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> count<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+			c<span style="color: #008000;">&#91;</span>cpr<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> cpr<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span> 
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #666666;">// Рабочий процесс</span>
+	<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> sum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> ind <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	MPI_Recv<span style="color: #008000;">&#40;</span>b, n, MPI_INT, <span style="color: #0000dd;">0</span>, msgtag, MPI_COMM_WORLD, <span style="color: #000040;">&amp;</span>status<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>pr<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		MPI_Recv<span style="color: #008000;">&#40;</span>car, n <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span>, MPI_INT, <span style="color: #0000dd;">0</span>, msgtag, MPI_COMM_WORLD, <span style="color: #000040;">&amp;</span>status<span style="color: #008000;">&#41;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>car<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span>
+				<span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>
+		sum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>
+			sum <span style="color: #000040;">+</span><span style="color: #000080;">=</span> car<span style="color: #008000;">&#91;</span>j <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span> <span style="color: #000040;">*</span> b<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		cpr<span style="color: #008000;">&#91;</span>ind<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> car<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		cpr<span style="color: #008000;">&#91;</span>ind<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> sum<span style="color: #008080;">;</span>
+		ind<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+	    <span style="color: #008000;">&#125;</span>
+&nbsp;
+	MPI_Send<span style="color: #008000;">&#40;</span>cpr, ind<span style="color: #000040;">*</span>m, MPI_INT, <span style="color: #0000dd;">0</span>, msgtag, MPI_Comm_WORLD<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+    <span style="color: #008000;">&#125;</span>
+&nbsp;
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #000040;">!</span>rank<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	      <span style="color: #666666;">//печать вектора c[n]</span>
+	<span style="color: #008000;">&#125;</span>
+&nbsp;
+	MPI_Finalize<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #008000;">&#125;</span>
+&nbsp;</pre>
+							</ul>
+							
+						</div>
+					</div>
+			</div>
+			 </div>
+			</div>
+		</div>
+	   </div>
+	</section>
+		<section style="background:#e3e8ee">
+		<div class="container">
+			<div class="row">
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp col-md-offset-2">
+					<div class="menu_bar1">
+                  <div class="plan_title montserrat-text uppercase">портфель задач</div>
+						<p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p>
+						
+						<a href="algorithms-portfel-zadach.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".2s">
+					<div class="menu_bar3">
+						<div class="plan_title montserrat-text uppercase">Семафор</div>
+						<p><b>Описание алгоритма</b></p>
+						<p> <b>Пример реализации</b></p>
+						<a href="algorithms-semafor.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="container" >
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp col-md-offset-2" data-wow-delay=".1s">
+					<div class="menu_bar4">
+						<div class="plan_title montserrat-text uppercase">Рандеву</div>
+						<div><p><b>Описание алгоритма</b> </p>
+						<p> <b>Пример реализации</b></p></div>
+						
+						<a href="algorithms-randevy.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay=".2s">
+					<div class="menu_bar5">
+						<div class="plan_title montserrat-text uppercase">FCFS</div>
+						<p><b>Описание алгоритма</b></p>
+						<p> <b>Пример реализации</b></p>
+						<a href="algorithms-fcfs.html" class="btn grey "><span>Подробнее</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section>
+	  <div class="container">
+        <div class="row">
+		  </div>
+	  </div>
+	</section>
+
+	
+
+
+
+	<!-- Подвал -->
+	<footer class="main-footer wow fadeInUp">
+		<div class="container">
+			<div class="col-md-8 col-sm-12">
+				<div class="row">
+					<div class="uppercase gray-text">
+						Ивановский Государственный Энергетический Университет
+						
+						<d>Кафедра Высокопроизводительных Вычислительных Систем </d>
+						<d>Алгоритмы Параллельного Программирования</d>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-12" style="text-align:right">
+				<div class="row">
+					<div class="uppercase gray-text">
+						created by Полякова Ульяна &copy;2020
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="content/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="content/js/jquery.social-buttons.min.js"></script>
+	<script type="text/javascript" src="content/js/smoothScroll.js"></script>
+	<script type="text/javascript" src="content/js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="content/js/jquery.animsition.min.js"></script>
+	<script type="text/javascript" src="content/js/wow.min.js"></script>
+	<script type="text/javascript" src="content/js/main.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(window).load(function() {
+			new WOW().init();
+			// initialize flexslider
+			$('.project_images').flexslider({
+				directionNav : false,
+				controlNav : false
+			});
+
+			// initialize social buttons
+			$("[data-social]").socialButtons();
+		});
+	</script>
+</body>
+</html>
